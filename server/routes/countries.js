@@ -6,5 +6,6 @@ countryRouter.get('/', countryController.index) // maps a http request to a func
 countryRouter.get('/:name', countryController.show)
 countryRouter.post('/', countryController.create)
 countryRouter.delete('/:name', countryController.destroy)
+countryRouter.patch('/:name', countryController.update)
 
 module.exports = countryRouter

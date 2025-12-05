@@ -42,6 +42,15 @@ class Country {
         let response = await db.query('DELETE FROM country WHERE name = $1 RETURNING *;', [this.name])
         return new Country(response.rows[0])
     }
+
+    async update(data) {
+        const response = await db.query('UPDATE country SET capital = $1 WHERE name = $2 RETURNING name, capital;',
+            [ data.capital, this.name ]);
+        if (response.rows.length != 1) {
+            throw new Error('Unable to update capital.')
+        }
+        return new Country(response.rows[0]);
+    }
 }
 
 module.exports = Country
