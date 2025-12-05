@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS country;
 
 CREATE TABLE country (
-    country_id INT GENERATED ALWAYS AS IDENTITY, -- 
-    name VARCHAR(100) NOT NULL, -- name will be made of charcaters, max 100, and not null means it will always have to be provided with a value
-    capital VARCHAR(100) NOT NULL, -- capital will be made of characters, max 100, and not null means it will always have to be provided with a value
-    population INT NOT NULL, -- does not need to be given a value
+    country_id INT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(100) NOT NULL,
+    capital VARCHAR(100) NOT NULL,
+    population INT NOT NULL,
     languages VARCHAR(100) NOT NULL,
     fun_fact VARCHAR(255),
     map_image_url VARCHAR(255),
@@ -22,3 +22,7 @@ VALUES
   ('Japan', 'Tokyo', 126860301, 'Japanese', 'Japan is home to the world''s largest fish market, Tsukiji Market.', 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png'),
   ('South Africa', 'Pretoria', 57779622, 'Afrikaans, English, Zulu, Xhosa, and others', 'South Africa has 11 official languages.', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/1200px-Flag_of_South_Africa.svg.png'),
   ('Australia', 'Canberra', 24982688, 'English', 'Australia is the only country that is also a continent.', 'https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Flag_of_Australia.svg/1200px-Flag_of_Australia.svg.png');
+
+
+
+
