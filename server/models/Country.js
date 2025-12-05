@@ -12,11 +12,35 @@ class Country {
     }
 
     static async getAll() {
-        const response = await db.query('SELECT name FROM country;');
+        const response = await db.query('SELECT name, capital FROM country;');
         if (response.rows.length === 0) {
             throw new Error('No countries available')
         }
         return response.rows.map(c => new Country(c))
+    }
+
+    static async getOneCountryByName(countryName) {
+        const response = await db.query('SELECT name, capital FROM country WHERE LOWER(name) = LOWER($1);', [countryName])
+        if (response.rows.length != 1) {
+            throw new Error(`Unable to find ${countryName}`)
+        }
+        return new Country(response.rows[0])
+    }
+
+    static async create(data) {
+        const { name, capital, population, languages } = data
+        const existingCountry = await db.query('SELECT name FROM country WHERE LOWER(name) = LOWER($1)', [name])
+        if(existingCountry.rows.length === 0) {
+            let response = await db.query('INSERT INTO country (name, capital, population, languages) VALUES ($1, $2, $3, $4) RETURNING *', [name, capital, population, languages])
+            return new Country(response.rows[0])
+        } else {
+            throw new Error('A country with this name already exists')
+        }
+    }
+
+    async destroy() {
+        let response = await db.query('DELETE FROM country WHERE name = $1 RETURNING *;', [this.name])
+        return new Country(response.rows[0])
     }
 }
 

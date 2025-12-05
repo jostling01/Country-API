@@ -85,3 +85,56 @@ VALUES
 
  - Run `npm run dev` to run the server in development mode
  - Run `npm start` to run the server in production mode
+
+ ## API Endpoints
+
+All available API endpoints with their methods and descriptions.
+
+### Base URL
+`http://localhost:<port>/countries` (or your deployed URL)
+
+### API Endpoints
+
+| Method | Endpoint                  | Description                  |
+|--------|---------------------------|------------------------------|
+| GET    | /countries                | Retrieves all countries          |
+| GET    | /countries/:name            | Retrieves a single country      |
+| POST   | /countries                | Creates a new country           |
+| DELETE | /countries/:name            | Deletes a country               |
+
+## Get all countries
+
+### Example Request
+
+To retrieve all countries, you can use the following GET request:
+
+`GET /countries`
+
+`curl -X GET http://localhost:<port>/countries`
+
+### Example Response
+
+A successful response will return a JSON array of countries objects, similar to the following:
+      
+    ```json
+    [
+        {
+          "id": 1,
+          "name": "country1",
+          "capital": "capital1",
+          "population": 1,
+          "languages": "language1",
+          "fun_fact": "fact1",
+          "map_image_url": "url1"
+        },
+        {
+          "id": 2,
+          "name": "country2",
+          "capital": "capital2",
+          "population": 2,
+          "languages": "language2",
+          "fun_fact": "fact2",
+          "map_image_url": "url2"
+        },
+    ]
+    ```

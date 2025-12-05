@@ -6,6 +6,7 @@ const countryRouter = require('./routes/countries')
 const app = express()
 app.use(cors())
 app.use(logger)
-app.use('', countryRouter)
+app.use(express.json())
+app.use('/countries', countryRouter)
 
 module.exports = app
