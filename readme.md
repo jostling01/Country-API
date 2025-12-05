@@ -68,3 +68,20 @@ VALUES
 ('South Africa', 'Pretoria', 57779622, 'Afrikaans, English, Zulu, Xhosa, and others', 'South Africa has 11 official languages.', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/1200px-Flag_of_South_Africa.svg.png'),
 ('Australia', 'Canberra', 24982688, 'English', 'Australia is the only country that is also a continent.', 'https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Flag_of_Australia.svg/1200px-Flag_of_Australia.svg.png');
 ```
+
+5. Setup your port
+
+  - Add A `PORT` key assigned to the port of your choice in your `.env` file
+  
+      ```
+      PORT=<port-of-your-choice>
+      ```
+
+    
+  - Replace `<your_database_url>` with the database URL you just copied
+  - Run `npm run setup-db` to setup the database
+
+6. Run the server
+
+ - Run `npm run dev` to run the server in development mode
+ - Run `npm start` to run the server in production mode
