@@ -12,11 +12,11 @@ class Country {
     }
 
     static async getAll() {
-        const response = await db.query('SELECT name, capital FROM country;');
-        if (response.rows.length === 0) {
+        const response = await db.query('SELECT name, capital FROM country;'); // db.query sends an SQL query to the database and aks the database to return the name and capital of every row in country table, storing result in response variable
+        if (response.rows.length === 0) { // checks if the db.query returned zero rows, i.e., the table was empty
             throw new Error('No countries available')
         }
-        return response.rows.map(c => new Country(c))
+        return response.rows.map(c => new Country(c)) // response.rows is an array of objects returned from the database, this line passes each row(object) in the array through the Country constructor, converting it into a Country instance
     }
 
     static async getOneCountryByName(countryName) {

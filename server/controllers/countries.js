@@ -2,10 +2,10 @@ const Country = require('../models/Country')
 
 async function index(req, res) {
     try {
-        const countries = await Country.getAll()
-        res.status(200).json(countries)
+        const countries = await Country.getAll() // calls the getAll function in Country class in model, and stores the object created in countries variable
+        res.status(200).json(countries) // if resp is okay, sends a 200 status code and converts the Country instance object into json before sending to client
     } catch(err) {
-        res.status(500).json({error: err.message})
+        res.status(500).json({error: err.message}) // if something goes wrong returns a 500 status code and a json object containing the error message
     }
 }
 
